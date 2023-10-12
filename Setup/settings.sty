@@ -1,0 +1,150 @@
+\ProvidesPackage{Setup/settings}
+
+%\include{Setup/Setup_eigen}
+\usepackage{hhline}
+% \usepackage[ngerman]{babel}
+
+% Um T1 Fontencoding zu aktivieren, hilft mit speziellen Sonderzeichen
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{csquotes}
+
+% Der Pfad zum Logo wird hier definiert und zwischen Deutsch oder nicht unterschieden
+% \def\thelogofilename{Setup/Logos/SVG/uzh_logo_d_pos.svg}
+\usepackage{iflang}
+\IfLanguageName{ngerman}{\def\thelogofilename{Setup/Logos/PDF/uzh_logo_d_pos}}{\def\thelogofilename{Setup/Logos/PDF/uzh_logo_e_pos}}
+
+% \usepackage[style=authoryear-ibid,backend=biber]{biblatex}
+\usepackage[style=ieee]{biblatex} 
+%\usepackage[sorting=none]{biblatex}
+\addbibresource{quellen.bib}
+
+% Interaktion und Plazierungen von Floats werden besser
+\usepackage{float}
+
+% Für breite Sachen können Seiten quer gedreht werden
+\usepackage{lscape}
+
+% Typesetting Code z.B. Python
+\usepackage{listings}
+
+% URL oder auch Mailadressen können eingefühgt werden
+\usepackage{url}
+
+% Fügt weitere Symbole spezifisch für Mathe ein
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{textcomp}
+
+% Nützliche Befehle um Physiksachen schneller zu schreiben
+\usepackage{physics}
+\AtBeginDocument{\RenewCommandCopy\qty\SI}
+
+% Blendet die Fehlermeldung von siunitx und physics aus wegen \qty
+\ExplSyntaxOn
+\msg_redirect_name:nnn { siunitx } { physics-pkg } { none }
+\ExplSyntaxOff
+
+% Möglichkeit Einheiten zu schreiben
+\usepackage{siunitx}
+% \sisetup{exponent-product = \cdot, output-product = \cdot}
+\sisetup{exponent-product = \cdot}
+
+% Einfügen von PDFs
+\usepackage{pdfpages}
+
+% Umgang und einfühgen von Grafiken
+\usepackage{graphicx}
+
+% SVGs einfühgen, wird gebraucht für das Logo in der Ecke
+\usepackage{svg}
+
+% Ermöglicht es mehrere Bilder in ein Float zu setzen und beiden eine Caption zu geben
+\usepackage{subcaption}
+
+% Packages die für die Titelseite, Header/Footer und Verzeichnisse gebraucht werden
+\usepackage[hidelinks]{hyperref}
+% \hypersetup{pdftitle={UZH Bericht},
+%             pdfauthor={Till Böhringer}}
+\usepackage[nottoc]{tocbibind}
+
+%Das die Nummerierungen in den Kapiteln nachgeführt werden
+\usepackage{chngcntr}
+
+% Ab hier aus Setup_eigen
+\usepackage{etoolbox}
+\usepackage[markcase=noupper]{scrlayer-scrpage}
+\usepackage[compact]{titlesec}
+
+%Ausstellen der Absatzeinzüge und Einstellen des Abstandens zwischen Paragraphen
+\usepackage{parskip}
+
+%Ab hier ist der Inhalt aus dem Setup
+
+\usepackage[margin=3cm, bmargin=4cm]{geometry} %-> Seitenränder kleiner, Fussrand grösser
+
+% % Der Pfad zum Logo hier einfügen
+% \def\thelogofilename{Setup/Logos/JPG/uzh_logo_d_pos_web_main.jpg}
+
+%Header und Footer
+\setlength{\headheight}{2cm} %-> Passt die Höhe für das Logo an
+
+\patchcmd{\chapter}{\thispagestyle{plain}}{\thispagestyle{scrheadings}}{}{}
+
+\pagestyle{scrheadings}
+%\clearscrheadfoot
+
+\automark[section]{chapter}
+\renewcommand\chaptermarkformat{} %-> machen das "Kapitel 1" weg
+\renewcommand\sectionmarkformat{}
+\clearpairofpagestyles
+
+%\lehead{\includegraphics[height={\headheight}]{\thelogofilename}}
+%\cehead{\leftmark}
+%\rehead{MTPM4}
+
+\lohead{\includegraphics[height={0.8\headheight}]{\thelogofilename}}
+% \lohead{\includesvg[height={0.8\headheight}]{\thelogofilename}}
+\cohead{}
+\rohead{\bfseries{\rightmark}}
+
+% \ifoot{Bericht von irgendwas}
+% \cfoot{HS23}
+\ofoot[\pagemark]{\pagemark}
+
+\pagestyle{scrheadings}
+%Ende Header und Footer
+
+%Kapitelseite anpassen
+\titleformat{\chapter}[hang]{\Huge\bfseries}{\thechapter}{1cm}{\huge\bfseries} % Gebrauch mit titlesec
+\titlespacing{\chapter}{0cm}{0cm}{0.3cm}[0cm]
+%Ende Kapitelseite anpassen
+
+\counterwithin{figure}{chapter}
+\counterwithin{table}{chapter}
+\counterwithin{equation}{chapter}
+
+%Entkommentieren für sans-serif-Schrift
+% \renewcommand{\familydefault}{\sfdefault}
+
+% Für diagramme
+\usepackage{pgf}
+\usepackage{lmodern}
+\usepackage{import}
+\usepackage{placeins}
+
+% Für Tabellen die über mehrere Seiten gehen sollen
+\usepackage{longtable}
+
+% Für Platzhalterbilder
+\usepackage{duckuments}
+
+% Für die anpassung der Captions
+\usepackage[figureposition=below,tableposition=above]{caption}
+\DeclareCaptionFormat{custom}{\textbf{#1#2}#3}
+\captionsetup{width=0.9\textwidth, format=custom}
+
+% Für Grafiken, z.B. Flowcharts
+\usepackage{tikz}
+\usetikzlibrary{shapes.geometric, arrows, positioning}

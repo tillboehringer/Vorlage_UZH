@@ -1,0 +1,39 @@
+\documentclass[11pt, a4paper, oneside]{book}
+
+% Um sprache umzustellen
+% \usepackage[ngerman]{babel}
+\usepackage[english]{babel}
+
+% Restliche Settings einfügen
+\usepackage{Setup/settings}
+
+% Einstellungen für Metainformation in PDF-Datei
+\hypersetup{pdftitle={Praktikum Physik 1 Experiment},
+            pdfauthor={Till Böhringer}}
+
+% Was im Footer stehen soll, ifoot -> links, cfoot -> mitte
+\ifoot{Experiment Shortname}
+\cfoot{HS23}
+
+% Allgemeine weite um alle Figures darauf zu beziehen
+\newcommand\Plotwidth{0.8}
+\newcommand\Bilderwidth{0.8}
+
+\begin{document}
+
+% Bitte Titlepage noch bearbeiten falls nötig
+\include{Setup/Titelpage_eigen}
+\frontmatter
+
+\tableofcontents
+\mainmatter
+
+\chapter{Introduction}
+
+In the beginning...
+test
+
+
+\include{Setup/Verzeichnisse_eigen}
+
+\end{document}

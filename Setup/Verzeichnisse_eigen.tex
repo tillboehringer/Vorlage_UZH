@@ -1,0 +1,21 @@
+% \clearpage
+% \phantomsection
+% \addtocounter{chapter}{1}
+% \addcontentsline{toc}{chapter}{\protect\numberline{\thechapter}{\listtablename}}
+% \listoftables
+
+% \clearpage
+% \phantomsection
+% \addtocounter{chapter}{1}
+% \addcontentsline{toc}{chapter}{\protect\numberline{\thechapter}{\listfigurename}}
+% \listoffigures
+
+% \printbibliography[heading=bibintoc, title={Quellenverzeichnis}]
+% \printbibliography[heading=bibintoc]
+\IfLanguageName{ngerman}{\printbibliography[heading=bibintoc, title={Quellenverzeichnis}]}{\printbibliography[heading=bibintoc]}
+
+\listoftables
+
+\listoffigures
+
+% \addtocontents{toc}{\protect\newpage}
