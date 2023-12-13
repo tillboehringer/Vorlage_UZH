@@ -69,9 +69,6 @@
 %             pdfauthor={Till Böhringer}}
 \usepackage[nottoc]{tocbibind}
 
-%Das die Nummerierungen in den Kapiteln nachgeführt werden
-\usepackage{chngcntr}
-
 % Ab hier aus Setup_eigen
 \usepackage{etoolbox}
 \usepackage[markcase=noupper]{scrlayer-scrpage}
@@ -120,6 +117,9 @@
 \titleformat{\chapter}[hang]{\Huge\bfseries}{\thechapter}{1cm}{\huge\bfseries} % Gebrauch mit titlesec
 \titlespacing{\chapter}{0cm}{0cm}{0.3cm}[0cm]
 %Ende Kapitelseite anpassen
+
+%Das die Nummerierungen in den Kapiteln nachgeführt werden
+\usepackage{chngcntr}
 
 \counterwithin{figure}{chapter}
 \counterwithin{table}{chapter}

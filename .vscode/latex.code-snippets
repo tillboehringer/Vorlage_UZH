@@ -17,8 +17,8 @@
 	// }
 
 	
-	"BOFI": {
-	  "prefix": ["BOFI"],
+	"Insert Picture": {
+	  "prefix": ["BPIC"],
 	  "scope": "latex",
 	  "body": ["\\begin{figure}[${1|h,H,t,b,p|}]",
 			   "    \\centering",
@@ -26,9 +26,20 @@
 			   "    \\caption{${3:Caption}}",
 			   "    \\label{fig:${4:Label}}",
 			   "\\end{figure}$0"],
-	  "description": "Insert a Figure with all specalised parameters"
-	}
-	
+	  "description": "Insert Picture with all specalised parameters"
+	},
+
+	"Insert Plot": {
+		"prefix": ["BPLOT"],
+		"scope": "latex",
+		"body": ["\\begin{figure}[${1|h,H,t,b,p|}]",
+				 "    \\centering",
+				 "    \\includegraphics[width=\\Plotwidth\\textwidth]{$2}",
+				 "    \\caption{${3:Caption}}",
+				 "    \\label{fig:${4:Label}}",
+				 "\\end{figure}$0"],
+		"description": "Insert Figure with all specalised parameters"
+	  }
 
 }
 
