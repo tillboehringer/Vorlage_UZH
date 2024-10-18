@@ -1,6 +1,6 @@
-# Vorlage_UZH
+# Vorlage_ZHAW
 
-This is a LaTex-template for physik-papers (can also be used for other papers) with the logos from the University of Zurich. (not official)
+This is a LaTex-template for physik-papers (can also be used for other papers) with the logos from ZHAW. (not official)
 
 ## Changing the logo and stuff
 
